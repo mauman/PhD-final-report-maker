@@ -1,0 +1,10 @@
+---
+header-includes: |
+    \usepackage{fancyhdr}
+    \usepackage{graphicx}
+    \fancyhead[RO,RE]{}
+    \fancyfoot[]{}
+    \usepackage{xcolor}
+    \definecolor{lightgray}{rgb}{.2,.2,.2}
+geometry: margin=0.75in
+...
