@@ -62,36 +62,6 @@ fileRef = open("privacy.md", "r", encoding="utf-8")
 privacy = fileRef.read()
 fileRef.close()
 
-
-#
-# if type == "sapienza":
-#     fileRef = open("2024-09-03 domande.csv", "r", encoding="utf-8")
-# else:
-#     fileRef = open("2024-04-08 domande unitelma.csv", "r", encoding="utf-8")
-#
-# # 2024-01-25
-# # if type == "sapienza":
-# #     combos = [(1, 3, 7), (2, 5, 8), (4, 6, 7), (1, 3, 8), (2, 5, 7), (4, 6, 8)]
-# # else:
-# #     combos = [(1, 2, 3)]
-#
-# # 2024-02-23
-# # if type == "sapienza":
-# #     combos = [(1, 7, 9), (3, 5, 10), (2, 8, 9), (4, 6, 10)]
-# # else:
-# #     combos = [(1, 2, 3)]
-#
-# combos = [(1, 2, 3, 4)]
-#
-# reader = csv.reader(fileRef, quotechar="\"", delimiter="\n")
-#
-# questions = []
-#
-# for row in reader:
-#     questions.append(row[0])
-#
-# fileRef.close()
-
 os.makedirs("output", exist_ok=True)
 
 time_start = "9:00"
