@@ -7,9 +7,9 @@ $\\centerline{{"REGOLAMENTO GENERALE SULLA PROTEZIONE DEI DATI"}}$
 
 # 
 
-Il sottoscritto {name} {surname}
+{"Il sottoscritto" if gender == "m" else "La sottoscritta"} {name} {surname}
 
-data di nascita {birthdate}, luogo di nascita {birthplace}
+data di nascita {birthdate}, luogo di nascita {birthplace} ({province})
 
 * [ ] DA’ IL CONSENSO
 * [ ]   NEGA IL CONSENSO

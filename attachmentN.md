@@ -6,12 +6,12 @@ $\\hfill$Allegato N. {candidateN + 1}
 
 ###
 
-$\\centerline{{DOTTORATO DI RICERCA IN INFORMATICA - CICLO/I {cycles}}}$
+$\\centerline{{DOTTORATO DI RICERCA IN INFORMATICA - CICLO {cycle}}}$
 $\\centerline{{SSD INF/01}}$
 
 ###
 
-Il Dott. {name} {surname} ha discusso la tesi di Dottorato dal titolo: "{title}".
+{"Il Dott." if gender == "m" else "La Dott.ssa"} {name} {surname} ha discusso la tesi di Dottorato dal titolo: "{title}".
 
 Le ricerche oggetto della tesi sono originali:
 

@@ -1,18 +1,16 @@
 import os
-import csv
-import random
 import subprocess
-from PyPDF2 import PdfMerger
-from codice_fiscale import get_CF
+import csv
 
 class Candidato:
-    def __init__(self, nome, cognome, sesso, giorno, mese, anno, luogo_nascita, ciclo):
-        self.CF = get_CF(nome, cognome, sesso, giorno, mese, anno, luogo_nascita)
+    def __init__(self, nome, cognome, sesso, giorno, mese, anno, comune_nascita, provincia_nascita, cf, ciclo):
+        self.CF = cf
         self.nome = nome
         self.cognome = cognome
         self.sesso = sesso
         self.data_nascita = giorno + "/" + mese + "/" + anno
-        self.comune_nascita = luogo_nascita
+        self.comune_nascita = comune_nascita
+        self.provincia_nascita = provincia_nascita
         self.ciclo = ciclo
         self.title = ""
 
@@ -28,8 +26,12 @@ def candidati_nomi(candidati):
 def candidati_documenti(candidati):
     result = ""
     for c in candidati:
-        result += "\\\n\\\n\\\nDott. " + c.nome + " " + c.cognome + " identificato con il seguente documento "
-        result += "............................ rilasciato da " + "..................................$\\newline$"
+        if c.sesso == "m":
+            result += "\\\n\\\n\\\nDott. "
+        else:
+            result += "\\\n\\\n\\\nDott.ssa "
+        result += c.nome + " " + c.cognome + " identificat" + ("o" if c.sesso == "m" else "a") + " con il seguente documento "
+        result += "............................ rilasciato da " + "..................................$\\newline$\\\n"
         result += "Firma ......................................."
     return result
 
@@ -92,9 +94,6 @@ fileRef.close()
 
 os.makedirs("output", exist_ok=True)
 
-
-cycles = "35, 36, 37"
-
 time_start = "9:00"
 
 time_end = "14:00"
@@ -108,13 +107,19 @@ componente = "Antonio Piccinno"
 segretario = "Giovanna Varni"
 
 candidati = []
+cycles = set()
 
-c = Candidato("Maurizio", "Mancini", "m", "6", "5", "1974", "Roma", 35)
-c.assignTitle("una tesi veramente figa")
-candidati.append(c)
-c = Candidato("Flavia", "Onofri", "f", "17", "11", "1954", "Roma", 36)
-c.assignTitle("una tesi ancora meglio")
-candidati.append(c)
+with open('candidates.csv', encoding="utf-8") as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        C = Candidato(row["nome"], row["cognome"], row["sesso"].lower(), row["DataNascita"].split("/")[0], row["DataNascita"].split("/")[1], row["DataNascita"].split("/")[2], row["LuogoNascita"].strip(), row["provinciaNascita"].strip(), row["codiceFiscale"].strip(), int(row["CicloAppartenenza"]))
+        C.title = row["titolo"].strip()
+        candidati.append(C)
+        cycles.add(row["CicloAppartenenza"])
+
+cycles = list(cycles)
+cycles.sort()
+cycles = ", ".join(cycles)
 
 result = effify(template)
 
@@ -123,12 +128,15 @@ for candidateN, c in enumerate(candidati):
     name = c.nome
     surname = c.cognome
     title = c.title
+    gender = c.sesso
+    cycle = c.ciclo
     candidate = effify(attachmentN)
     result += candidate
 
     birthdate = c.data_nascita
     birthplace = c.comune_nascita
-    cycle = c.ciclo
+    province = c.provincia_nascita
+
     candidate = effify(attachmentB)
     result += candidate
 

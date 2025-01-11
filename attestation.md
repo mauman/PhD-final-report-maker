@@ -9,9 +9,9 @@ $\\centerline{{DOTTORATO DI RICERCA IN INFORMATICA - CICLO {cycle}}}$
 
 # 
 
-SI ATTESTA CHE IL DOTT. {name} {surname}
+SI ATTESTA CHE {"IL DOTT." if gender == "m" else "LA DOTT.SSA"} {name} {surname}
 
-NATO A {birthplace}
+NAT{"O" if gender == "m" else "A"} IL {birthdate} A {birthplace} ({province})
 
 HA SOSTENUTO, IN DATA {day}
 

@@ -1,7 +1,7 @@
 
 $\\hfill$Allegato B
 
-**$\\centerline{{SCHEDA NOTIZIE CANDIDATO}}$**
+**$\\centerline{{SCHEDA NOTIZIE CANDIDAT{"O" if gender == "m" else "A"}}}$**
 
 # 
 
@@ -11,7 +11,7 @@ NOME {name}
 
 DATA DI NASCITA {birthdate}
 
-LUOGO DI NASCITA {birthplace}
+LUOGO DI NASCITA {birthplace} ({province})
 
 DOTTORATO DI RICERCA IN INFORMATICA
 
@@ -19,7 +19,7 @@ CICLO {cycle}
 
 DATA ESAME FINALE {day}
 
-COMMISSIONE FORMATA DAI PROFF.RI:
+COMMISSIONE FORMATA DAI PROFF.:
 
 $\\hfill${presidente}
 
