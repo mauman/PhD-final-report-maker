@@ -31,7 +31,7 @@ def candidati_documenti(candidati):
         else:
             result += "\\\n\\\n\\\nDott.ssa "
         result += c.nome + " " + c.cognome + " identificat" + ("o" if c.sesso == "m" else "a") + " con il seguente documento "
-        result += "............................ rilasciato da " + "..................................$\\newline$\\\n"
+        result += "............................$\\newline$\\\nrilasciato da " + "..................................$\\newline$\\\n"
         result += "Firma ......................................."
     return result
 
