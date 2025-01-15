@@ -39,8 +39,7 @@ La Commissione, nominata dal Rettore con proprio Decreto
 * {segretario}
 
 
-La Commissione delibera all'unanimità che le funzioni di Presidente saranno svolte dal Prof. {presidente}
-con maggiore anzianità in ruolo, e che le funzioni di Segretario-Membro saranno esercitate
+La Commissione delibera all'unanimità che le funzioni di Presidente saranno svolte dal Prof. {presidente}, e che le funzioni di Segretario-Membro saranno esercitate
 dal Prof. {segretario}.
 
 I Commissari, presa visione delle norme che regolano il conseguimento del titolo di Dottore di Ricerca (PhD) e dell’elenco dei candidati, dichiarano di non essere parenti od affini fino al 4° grado con alcuno dei candidati e tra di loro. 
