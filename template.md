@@ -47,11 +47,16 @@ La Commissione procede all’identificazione dei candidati – dai quali in prec
 
 La Commissione rileva che risultano presenti i dottori:
 
-{candidati_nomi(candidati)}
+<!--{candidati_nomi(candidati)}-->
+
+$\\vspace{{2cm}}$
+
 
 La Commissione rileva, inoltre, che risultano assenti i seguenti candidati:
 
-* nessuno
+<!--* nessuno-->
+
+$\\vspace{{2cm}}$
 
 La seduta è tolta alle ore {time_end}.
 
@@ -83,14 +88,18 @@ Dipartimento di Informatica,
 
 ha esaminato i seguenti candidati:
 
-{candidati_nomi(candidati)}
+<!--{candidati_nomi(candidati)}-->
+
+$\\vspace{{2cm}}$
 
 Ciascun candidato discute l’elaborato con i membri della Commissione. 
 Al termine dell’esposizione, la Commissione, presa visione della prevista presentazione del Collegio dei Docenti, del parere espresso dai Valutatori esterni e constatata l’originalità della tesi nonché la sua rilevanza nell’ambito della tematica del Dottorato, esprime i giudizi riportati negli allegati 1), 2) etc.
 
 Pertanto, la Commissione propone al Rettore che sia conferito il titolo di Dottore di Ricerca (PhD) ai seguenti Dottori:
 
-{candidati_nomi(candidati)}
+<!--{candidati_nomi(candidati)}-->
+
+$\\vspace{{2cm}}$
 
 **Al presente verbale sono allegate le ricevute dei questionari ALMALAUREA.**
 

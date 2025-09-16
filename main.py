@@ -64,11 +64,11 @@ fileRef.close()
 
 os.makedirs("output", exist_ok=True)
 
-time_start = "9:00"
+time_start = "10:30"
 
-time_end = "14:00"
+time_end = "13:30"
 
-day = "15/1/2025"
+day = "22/5/2025"
 
 decreto = "3512/2024 del 13/12/2024"
 
@@ -128,4 +128,4 @@ fileRef.close()
 header = "header-includes.yaml"
     # else:
     #     header = "header-includes-unitelma.yaml"
-res = subprocess.call(f"pandoc {header} -V geometry:margin=0.75in -V papersize:a4 --variable=fontfamily:arev -i output/output.md -o output/output.pdf", shell=True)
+res = subprocess.call(f"pandoc {header} -V pagestyle=empty -V geometry:margin=0.75in -V papersize:a4 --variable=fontfamily:arev -i output/output.md -o output/output.pdf", shell=True)
