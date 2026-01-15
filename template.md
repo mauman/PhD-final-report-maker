@@ -38,6 +38,7 @@ La Commissione, nominata dal Rettore con proprio Decreto
 * {componente}
 * {segretario}
 
+La Prof. Antinisca Di Marco, membro supplente, sostituisce la Prof. Giovanna Varni, membro effettivo.
 
 La Commissione delibera all'unanimità che le funzioni di Presidente saranno svolte dal Prof. {presidente}, e che le funzioni di Segretario-Membro saranno esercitate
 dal Prof. {segretario}.

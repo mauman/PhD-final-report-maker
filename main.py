@@ -64,17 +64,17 @@ fileRef.close()
 
 os.makedirs("output", exist_ok=True)
 
-time_start = "10:30"
+time_start = "11:30"
 
-time_end = "13:30"
+time_end = "14:30"
 
-day = "22/5/2025"
+day = "16/9/2025"
 
 decreto = "3512/2024 del 13/12/2024"
 
 presidente = "Simone Calderara"
 componente = "Antonio Piccinno"
-segretario = "Giovanna Varni"
+segretario = "Antinisca Di Marco"
 
 candidati = []
 cycles = set()
@@ -82,10 +82,10 @@ cycles = set()
 with open('candidates.csv', encoding="utf-8") as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        C = Candidato(row["nome"], row["cognome"], row["sesso"].lower(), row["DataNascita"].split("/")[0], row["DataNascita"].split("/")[1], row["DataNascita"].split("/")[2], row["LuogoNascita"].strip(), row["provinciaNascita"].strip(), row["codiceFiscale"].strip(), int(row["CicloAppartenenza"]))
+        C = Candidato(row["nome"], row["cognome"], row["sesso"].lower(), row["data_nascita"].split("/")[0], row["data_nascita"].split("/")[1], row["data_nascita"].split("/")[2], row["luogo_nascita"].strip(), row["prov_nascita"].strip(), row["codice_fiscale"].strip(), int(row["ciclo_numero"]))
         C.title = row["titolo"].strip()
         candidati.append(C)
-        cycles.add(row["CicloAppartenenza"])
+        cycles.add(row["ciclo_numero"])
 
 cycles = list(cycles)
 cycles.sort()
@@ -128,4 +128,5 @@ fileRef.close()
 header = "header-includes.yaml"
     # else:
     #     header = "header-includes-unitelma.yaml"
-res = subprocess.call(f"pandoc {header} -V pagestyle=empty -V geometry:margin=0.75in -V papersize:a4 --variable=fontfamily:arev -i output/output.md -o output/output.pdf", shell=True)
+# res = subprocess.call(f"pandoc {header} -V pagestyle=empty -V geometry:margin=0.75in -V papersize:a4 --variable=fontfamily:arev -i output/output.md -o output/output.pdf", shell=True)
+res = subprocess.call(f"pandoc {header} -V pagestyle=empty -V geometry:margin=0.75in -V papersize:a4 -i output/output.md -o output/output.pdf", shell=True)
