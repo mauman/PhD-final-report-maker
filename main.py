@@ -64,17 +64,17 @@ fileRef.close()
 
 os.makedirs("output", exist_ok=True)
 
-time_start = "11:30"
+time_start = "9:00"
 
-time_end = "14:30"
+time_end = "17:00"
 
-day = "16/9/2025"
+day = "26/1/2026"
 
-decreto = "3512/2024 del 13/12/2024"
+decreto = "3625/2025 del 16/12/2025"
 
-presidente = "Simone Calderara"
-componente = "Antonio Piccinno"
-segretario = "Antinisca Di Marco"
+presidente = "Barbara Re"
+componente = "Han Van Der Aa"
+segretario = "Chiara Di Francescomarino"
 
 candidati = []
 cycles = set()
@@ -129,4 +129,6 @@ header = "header-includes.yaml"
     # else:
     #     header = "header-includes-unitelma.yaml"
 # res = subprocess.call(f"pandoc {header} -V pagestyle=empty -V geometry:margin=0.75in -V papersize:a4 --variable=fontfamily:arev -i output/output.md -o output/output.pdf", shell=True)
-res = subprocess.call(f"pandoc {header} -V pagestyle=empty -V geometry:margin=0.75in -V papersize:a4 -i output/output.md -o output/output.pdf", shell=True)
+# res = subprocess.call(f"pandoc {header} -V pagestyle=empty -V geometry:margin=0.75in -V papersize:a4 -i output/output.md -o output/output.pdf", shell=True)
+# Usa --metadata-file per evitare che Pandoc si confonda tra contenuto e configurazione
+res = subprocess.call(f"pandoc --metadata-file=header-includes.yaml output/output.md -o output/output.pdf --pdf-engine=pdflatex", shell=True)

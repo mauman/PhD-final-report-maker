@@ -1,10 +1,35 @@
 ---
-header-includes: |
+header-includes:
+  - |
     \usepackage{fancyhdr}
     \usepackage{graphicx}
-    \fancyhead[RO,RE]{}
-    \fancyfoot[]{}
+    \usepackage{tikz}
     \usepackage{xcolor}
     \definecolor{lightgray}{rgb}{.2,.2,.2}
-geometry: margin=0.75in
+    
+    \pagestyle{fancy}
+    \fancyhf{}
+    
+    \fancyhead[C]{
+      \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=north, inner sep=0pt] at (current page.north) {
+          \includegraphics[width=\paperwidth]{PNRR_header.png}
+        };
+      \end{tikzpicture}
+    }
+    
+    \fancyfoot[C]{
+      \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=south, inner sep=0pt] at (current page.south) {
+          \includegraphics[width=\paperwidth]{PNRR_footer.png}
+        };
+      \end{tikzpicture}
+    }
+    
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+geometry:
+  - margin=0.75in
+  - top=1.4in
+  - bottom=1.2in
 ...

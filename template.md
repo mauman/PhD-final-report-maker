@@ -38,10 +38,8 @@ La Commissione, nominata dal Rettore con proprio Decreto
 * {componente}
 * {segretario}
 
-La Prof. Antinisca Di Marco, membro supplente, sostituisce la Prof. Giovanna Varni, membro effettivo.
-
-La Commissione delibera all'unanimità che le funzioni di Presidente saranno svolte dal Prof. {presidente}, e che le funzioni di Segretario-Membro saranno esercitate
-dal Prof. {segretario}.
+La Commissione delibera all'unanimità che le funzioni di Presidente saranno svolte dalla Prof.ssa {presidente}, e che le funzioni di Segretario-Membro saranno esercitate
+dalla Prof.ssa {segretario}.
 
 I Commissari, presa visione delle norme che regolano il conseguimento del titolo di Dottore di Ricerca (PhD) e dell’elenco dei candidati, dichiarano di non essere parenti od affini fino al 4° grado con alcuno dei candidati e tra di loro. 
 La Commissione procede all’identificazione dei candidati – dai quali in precedenza hanno ricevuto le tesi – in base al documento di riconoscimento, compilando la scheda di identificazione candidati (allegato A), e chiede ad ogni candidato di compilare la scheda “notizie candidato” (allegato B).
@@ -50,14 +48,13 @@ La Commissione rileva che risultano presenti i dottori:
 
 <!--{candidati_nomi(candidati)}-->
 
-$\\vspace{{2cm}}$
-
+$\\vspace{{3.8cm}}$
 
 La Commissione rileva, inoltre, che risultano assenti i seguenti candidati:
 
 <!--* nessuno-->
 
-$\\vspace{{2cm}}$
+$\\vspace{{0.5cm}}$
 
 La seduta è tolta alle ore {time_end}.
 
@@ -74,7 +71,6 @@ $\\hfill$Segretario-Membro: {segretario}
 
 $\\vspace*{{\\fill}}$
 
-$\\pagebreak$
 
 #### VERBALE DELLA RIUNIONE DELLA COMMISSIONE PER IL CONFERIMENTO DEL TITOLO DI DOTTORE DI RICERCA (PhD)
 
@@ -91,7 +87,7 @@ ha esaminato i seguenti candidati:
 
 <!--{candidati_nomi(candidati)}-->
 
-$\\vspace{{2cm}}$
+$\\vspace{{3cm}}$
 
 Ciascun candidato discute l’elaborato con i membri della Commissione. 
 Al termine dell’esposizione, la Commissione, presa visione della prevista presentazione del Collegio dei Docenti, del parere espresso dai Valutatori esterni e constatata l’originalità della tesi nonché la sua rilevanza nell’ambito della tematica del Dottorato, esprime i giudizi riportati negli allegati 1), 2) etc.
@@ -100,7 +96,7 @@ Pertanto, la Commissione propone al Rettore che sia conferito il titolo di Dotto
 
 <!--{candidati_nomi(candidati)}-->
 
-$\\vspace{{2cm}}$
+$\\vspace{{3cm}}$
 
 **Al presente verbale sono allegate le ricevute dei questionari ALMALAUREA.**
 
