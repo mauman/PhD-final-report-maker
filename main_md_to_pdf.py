@@ -132,3 +132,5 @@ header = "header-includes.yaml"
 # res = subprocess.call(f"pandoc {header} -V pagestyle=empty -V geometry:margin=0.75in -V papersize:a4 -i output/output.md -o output/output.pdf", shell=True)
 # Usa --metadata-file per evitare che Pandoc si confonda tra contenuto e configurazione
 res = subprocess.call(f"pandoc --metadata-file=header-includes.yaml output/output.md -o output/output.pdf --pdf-engine=pdflatex", shell=True)
+
+res = subprocess.call(f"pandoc --metadata-file=header-includes.yaml output/output.md -o output/output.docx", shell=True)
