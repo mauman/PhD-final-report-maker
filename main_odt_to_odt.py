@@ -122,17 +122,17 @@ def merge_docx_files(file_master, file_da_aggiungere, file_output):
 
 os.makedirs("output", exist_ok=True)
 
-time_start = "9:00"
+time_start = "14:00"
 
 time_end = "17:00"
 
-day = "26/1/2026"
+day = "28/9/2026"
 
 decreto = "3625/2025 del 16/12/2025"
 
-presidente = "Prof.ssa Barbara Re"
-segretario = "Prof. Han Van Der Aa"
-componente = "Prof.ssa Xixi Lu"
+presidente = "Prof.ssa Sabrina Kirrane"
+componente = "Prof.ssa Chiara di Francescomarino"
+segretario = "Prof. Tiziano De Matteis"
 
 candidati = []
 cycles = set()
