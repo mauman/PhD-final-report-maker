@@ -2,9 +2,12 @@ import os
 import subprocess
 import csv
 from docx import Document
+from docxcompose.composer import Composer
+from nationalities import mondo_mappa
+from provinces import provincia_to_sigla
 
 class Candidato:
-    def __init__(self, nome, cognome, sesso, giorno, mese, anno, comune_nascita, provincia_nascita, cf, ciclo):
+    def __init__(self, nome, cognome, sesso, giorno, mese, anno, comune_nascita, provincia_nascita, cittadinanza, cf, ciclo):
         self.CF = cf
         self.nome = nome
         self.cognome = cognome
@@ -14,6 +17,11 @@ class Candidato:
         self.provincia_nascita = provincia_nascita
         self.ciclo = ciclo
         self.title = ""
+
+        if self.provincia_nascita == "":
+            self.provincia_nascita = mondo_mappa[cittadinanza.lower()]
+        else:
+            self.provincia_nascita = provincia_to_sigla[provincia_nascita.lower()]
 
     def assignTitle(self, T):
         self.title = T
@@ -44,6 +52,7 @@ def effify(non_f_str: str):
 def replace_placeholder(doc, placeholder_name, new_text):
     """
     Sostituisce il placeholder in tutto il documento DOCX (paragrafi e tabelle),
+
     preservando la formattazione il più possibile.
     """
 
@@ -83,14 +92,15 @@ def replace_placeholder(doc, placeholder_name, new_text):
                     process_paragraph(p)
 
 
-from docx import Document
-from docxcompose.composer import Composer
+
 
 
 def merge_docx_files(file_master, file_da_aggiungere, file_output):
     """
+
     Unisce due file docx mantenendo stili e struttura.
     Il secondo file inizierà su una nuova pagina.
+
     """
     # 1. Carichiamo il primo documento (che farà da base)
     master = Document(file_master)
@@ -140,7 +150,7 @@ cycles = set()
 with open('candidates.csv', encoding="utf-8") as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        C = Candidato(row["nome"], row["cognome"], row["sesso"].lower(), row["data_nascita"].split("/")[0], row["data_nascita"].split("/")[1], row["data_nascita"].split("/")[2], row["luogo_nascita"].strip(), row["prov_nascita"].strip(), row["codice_fiscale"].strip(), int(row["ciclo_numero"]))
+        C = Candidato(row["nome"], row["cognome"], row["sesso"].lower(), row["data_nascita"].split("/")[0], row["data_nascita"].split("/")[1], row["data_nascita"].split("/")[2], row["luogo_nascita"].strip(), row["prov_nascita"].strip(), row["cittadinanza"].strip(), row["codice_fiscale"].strip(), int(row["ciclo_numero"]))
         C.title = row["titolo"].strip()
         candidati.append(C)
         cycles.add(row["ciclo_numero"])
@@ -195,6 +205,15 @@ for candidateN, c in enumerate(candidati):
     replace_placeholder(candidate_document, '{{presidente}}', presidente)
     replace_placeholder(candidate_document, '{{componente}}', componente)
     replace_placeholder(candidate_document, '{{segretario}}', segretario)
+    if c.sesso == 'm':
+        replace_placeholder(candidate_document, '{{gender_dottdottssa}}', 'il Dott.')
+        replace_placeholder(candidate_document, '{{gender_oa}}', 'O')
+        replace_placeholder(candidate_document, '{{gender_ilsottlasott}}', 'Il sottoscritto')
+    else:
+        replace_placeholder(candidate_document, '{{gender_dottdottssa}}', 'la Dott.ssa')
+        replace_placeholder(candidate_document, '{{gender_oa}}', 'A')
+        replace_placeholder(candidate_document, '{{gender_ilsottlasott}}', 'La sottoscritta')
+
 
     candidate_document.save(f'output/candidate_{candidateN}.docx')
 
